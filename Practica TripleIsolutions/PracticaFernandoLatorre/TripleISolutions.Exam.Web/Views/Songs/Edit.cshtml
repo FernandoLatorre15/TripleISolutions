@@ -1,0 +1,31 @@
+﻿@model CatSongs
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primery">Editar datos de la canción</h2>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="TitleName">Titulo de la canción</label>
+            <input asp-for="TitleName" class="form-control"/>
+            <span asp-validation-for="TitleName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+            <label asp-for="BandName">Nombre de la banda</label>
+            <input asp-for="BandName" class="form-control"/>
+            <span asp-validation-for="BandName" class="text-danger"></span>
+            </div>
+        <div class="mb-3">
+            <label asp-for="LaunchYear">Año de lanzamiento</label>
+            <input asp-for="LaunchYear" class="form-control" />
+            <span asp-validation-for="LaunchYear" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="MusicGenre">Genero Musical</label>
+            <input asp-for="MusicGenre" class="form-control" />
+            <span asp-validation-for="MusicGenre" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Editar</button>
+        <a asp-controller="Songs" asp-action="Index" class="btn btn-secondary" style="width:150px">Atrás</a>
+    </div>
+</form> 

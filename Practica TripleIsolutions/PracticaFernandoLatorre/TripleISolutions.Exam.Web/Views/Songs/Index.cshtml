@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CatSongs>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Crud de Playlist</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Songs" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-music-note-beamed"> Agregar Nueva cancion</i>
+            </a>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Grupo
+            </th>
+            <th>
+                Año
+            </th>
+            <th>
+                Genero
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var song in Model)
+        {
+            <tr>
+                <td>
+                    @song.TitleName
+                </td>
+                <td>
+                    @song.BandName
+                </td>
+                <td>
+                    @song.LaunchYear
+                </td>
+                <td>
+                    @song.MusicGenre
+                </td>
+                 <td>
+                    <div class="btn-group">
+                        <a asp-controller="Songs" asp-action="Edit" asp-route-songId="@song.SongId" class="btn btn-primary">
+                            <i class="bi bi-pencil">  Editar</i>
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-secondary"  asp-controller="Songs" asp-action="Delete" asp-route-songId="@song.SongId" onclick="return confirm('Estas seguro que deseas eliminar este registro?');">
+                            <i class="bi bi-trash-fill">  Eliminar</i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
